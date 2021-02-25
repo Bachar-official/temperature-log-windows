@@ -8,3 +8,4 @@ A:\temperature-log-windows\TemperatureLog\obj\Debug\TemperatureLog.csproj.Genera
 A:\temperature-log-windows\TemperatureLog\obj\Debug\TemperatureLog.csproj.CoreCompileInputs.cache
 A:\temperature-log-windows\TemperatureLog\obj\Debug\TemperatureLog.exe
 A:\temperature-log-windows\TemperatureLog\obj\Debug\TemperatureLog.pdb
+A:\temperature-log-windows\TemperatureLog\obj\Debug\TemperatureLog.Frm_settings.resources

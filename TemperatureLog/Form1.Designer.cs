@@ -32,6 +32,8 @@ namespace TemperatureLog
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_main));
             this.trayIcon = new System.Windows.Forms.NotifyIcon(this.components);
+            this.contextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.menuItemExit = new System.Windows.Forms.ToolStripMenuItem();
             this.degreesText = new System.Windows.Forms.Label();
             this.degrees_label = new System.Windows.Forms.Label();
             this.humidity_percents = new System.Windows.Forms.Label();
@@ -40,10 +42,8 @@ namespace TemperatureLog
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemSettings = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemMinimize = new System.Windows.Forms.ToolStripMenuItem();
-            this.contextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.menuItemExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1.SuspendLayout();
             this.contextMenu.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // trayIcon
@@ -52,6 +52,20 @@ namespace TemperatureLog
             this.trayIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("trayIcon.Icon")));
             this.trayIcon.Text = "Текущая погода";
             this.trayIcon.Visible = true;
+            // 
+            // contextMenu
+            // 
+            this.contextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuItemExit});
+            this.contextMenu.Name = "contextMenu";
+            this.contextMenu.Size = new System.Drawing.Size(110, 26);
+            // 
+            // menuItemExit
+            // 
+            this.menuItemExit.Name = "menuItemExit";
+            this.menuItemExit.Size = new System.Drawing.Size(109, 22);
+            this.menuItemExit.Text = "Выход";
+            this.menuItemExit.Click += new System.EventHandler(this.menuItemExit_Click);
             // 
             // degreesText
             // 
@@ -115,29 +129,16 @@ namespace TemperatureLog
             // menuItemSettings
             // 
             this.menuItemSettings.Name = "menuItemSettings";
-            this.menuItemSettings.Size = new System.Drawing.Size(134, 22);
+            this.menuItemSettings.Size = new System.Drawing.Size(180, 22);
             this.menuItemSettings.Text = "Настройки";
+            this.menuItemSettings.Click += new System.EventHandler(this.menuItemSettings_Click);
             // 
             // menuItemMinimize
             // 
             this.menuItemMinimize.Name = "menuItemMinimize";
-            this.menuItemMinimize.Size = new System.Drawing.Size(134, 22);
+            this.menuItemMinimize.Size = new System.Drawing.Size(180, 22);
             this.menuItemMinimize.Text = "Свернуть";
             this.menuItemMinimize.Click += new System.EventHandler(this.menuItemMinimize_Click);
-            // 
-            // contextMenu
-            // 
-            this.contextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuItemExit});
-            this.contextMenu.Name = "contextMenu";
-            this.contextMenu.Size = new System.Drawing.Size(181, 48);
-            // 
-            // menuItemExit
-            // 
-            this.menuItemExit.Name = "menuItemExit";
-            this.menuItemExit.Size = new System.Drawing.Size(180, 22);
-            this.menuItemExit.Text = "Выход";
-            this.menuItemExit.Click += new System.EventHandler(this.menuItemExit_Click);
             // 
             // Frm_main
             // 
@@ -153,9 +154,9 @@ namespace TemperatureLog
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Frm_main";
             this.Text = "Текущая погода";
+            this.contextMenu.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.contextMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

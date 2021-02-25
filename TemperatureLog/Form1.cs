@@ -18,6 +18,18 @@ namespace TemperatureLog
             trayIcon.Visible = false;
             this.trayIcon.MouseDoubleClick += TrayIcon_MouseDoubleClick;
             this.Resize += Frm_main_Resize;
+            System.Timers.Timer timer = new System.Timers.Timer();
+            timer.Interval = 300000;
+            timer.Elapsed += Timer_Elapsed;
+            timer.Start();
+        }
+
+        private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            if (Properties.Settings.Default.showNotifications)
+            {
+                trayIcon.ShowBalloonTip(2000, "Новое имерение", "Температура, влажность", ToolTipIcon.Info);
+            }            
         }
 
         private void Frm_main_Resize(object sender, EventArgs e)
@@ -45,6 +57,12 @@ namespace TemperatureLog
         private void menuItemExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void menuItemSettings_Click(object sender, EventArgs e)
+        {
+            Frm_settings settings = new Frm_settings();
+            settings.ShowDialog();
         }
     }
 }
