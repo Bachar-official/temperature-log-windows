@@ -36,10 +36,15 @@ namespace TemperatureLog
             trayIcon.Visible = false;
         }
 
-        private void btn_minimize_Click(object sender, EventArgs e)
+        private void menuItemMinimize_Click(object sender, EventArgs e)
         {
             trayIcon.Visible = true;
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void menuItemExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
