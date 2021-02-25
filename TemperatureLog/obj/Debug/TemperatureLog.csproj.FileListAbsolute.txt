@@ -1,0 +1,10 @@
+A:\temperature-log-windows\TemperatureLog\bin\Debug\TemperatureLog.exe.config
+A:\temperature-log-windows\TemperatureLog\bin\Debug\TemperatureLog.exe
+A:\temperature-log-windows\TemperatureLog\bin\Debug\TemperatureLog.pdb
+A:\temperature-log-windows\TemperatureLog\obj\Debug\TemperatureLog.csprojAssemblyReference.cache
+A:\temperature-log-windows\TemperatureLog\obj\Debug\TemperatureLog.Frm_main.resources
+A:\temperature-log-windows\TemperatureLog\obj\Debug\TemperatureLog.Properties.Resources.resources
+A:\temperature-log-windows\TemperatureLog\obj\Debug\TemperatureLog.csproj.GenerateResource.cache
+A:\temperature-log-windows\TemperatureLog\obj\Debug\TemperatureLog.csproj.CoreCompileInputs.cache
+A:\temperature-log-windows\TemperatureLog\obj\Debug\TemperatureLog.exe
+A:\temperature-log-windows\TemperatureLog\obj\Debug\TemperatureLog.pdb
