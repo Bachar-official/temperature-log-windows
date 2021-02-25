@@ -12,7 +12,6 @@ namespace TemperatureLog
 {
     public partial class Frm_main : Form
     {
-        FormWindowState formerState;
         public Frm_main()
         {
             InitializeComponent();
