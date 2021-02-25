@@ -36,6 +36,7 @@ namespace TemperatureLog
             this.check_showNotifications = new System.Windows.Forms.CheckBox();
             this.num_minutes = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.num_minutes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -81,9 +82,9 @@ namespace TemperatureLog
             this.check_showNotifications.AutoSize = true;
             this.check_showNotifications.Location = new System.Drawing.Point(16, 57);
             this.check_showNotifications.Name = "check_showNotifications";
-            this.check_showNotifications.Size = new System.Drawing.Size(202, 17);
+            this.check_showNotifications.Size = new System.Drawing.Size(159, 17);
             this.check_showNotifications.TabIndex = 4;
-            this.check_showNotifications.Text = "Показывать уведомления каждые";
+            this.check_showNotifications.Text = "Показывать уведомления";
             this.check_showNotifications.UseVisualStyleBackColor = true;
             this.check_showNotifications.CheckedChanged += new System.EventHandler(this.check_showNotifications_CheckedChanged);
             // 
@@ -94,7 +95,7 @@ namespace TemperatureLog
             0,
             0,
             0});
-            this.num_minutes.Location = new System.Drawing.Point(219, 56);
+            this.num_minutes.Location = new System.Drawing.Point(133, 79);
             this.num_minutes.Minimum = new decimal(new int[] {
             5,
             0,
@@ -113,17 +114,27 @@ namespace TemperatureLog
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(265, 58);
+            this.label2.Location = new System.Drawing.Point(179, 81);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(37, 13);
             this.label2.TabIndex = 6;
             this.label2.Text = "минут";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(16, 81);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(115, 13);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Частота обновления:";
             // 
             // Frm_settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(315, 231);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.num_minutes);
             this.Controls.Add(this.check_showNotifications);
@@ -149,5 +160,6 @@ namespace TemperatureLog
         private System.Windows.Forms.CheckBox check_showNotifications;
         private System.Windows.Forms.NumericUpDown num_minutes;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }

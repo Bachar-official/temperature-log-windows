@@ -73,15 +73,15 @@ namespace TemperatureLog
             this.degreesText.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.degreesText.Location = new System.Drawing.Point(29, 41);
             this.degreesText.Name = "degreesText";
-            this.degreesText.Size = new System.Drawing.Size(204, 73);
+            this.degreesText.Size = new System.Drawing.Size(158, 73);
             this.degreesText.TabIndex = 1;
-            this.degreesText.Text = "label1";
+            this.degreesText.Text = "25.7";
             // 
             // degrees_label
             // 
             this.degrees_label.AutoSize = true;
             this.degrees_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.degrees_label.Location = new System.Drawing.Point(239, 41);
+            this.degrees_label.Location = new System.Drawing.Point(172, 41);
             this.degrees_label.Name = "degrees_label";
             this.degrees_label.Size = new System.Drawing.Size(104, 73);
             this.degrees_label.TabIndex = 2;
@@ -91,7 +91,7 @@ namespace TemperatureLog
             // 
             this.humidity_percents.AutoSize = true;
             this.humidity_percents.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.humidity_percents.Location = new System.Drawing.Point(254, 128);
+            this.humidity_percents.Location = new System.Drawing.Point(192, 128);
             this.humidity_percents.Name = "humidity_percents";
             this.humidity_percents.Size = new System.Drawing.Size(89, 73);
             this.humidity_percents.TabIndex = 4;
@@ -103,9 +103,9 @@ namespace TemperatureLog
             this.humidityText.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.humidityText.Location = new System.Drawing.Point(29, 128);
             this.humidityText.Name = "humidityText";
-            this.humidityText.Size = new System.Drawing.Size(204, 73);
+            this.humidityText.Size = new System.Drawing.Size(158, 73);
             this.humidityText.TabIndex = 3;
-            this.humidityText.Text = "label1";
+            this.humidityText.Text = "00.0";
             // 
             // menuStrip1
             // 
@@ -113,7 +113,7 @@ namespace TemperatureLog
             this.файлToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(391, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(324, 24);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -129,14 +129,14 @@ namespace TemperatureLog
             // menuItemSettings
             // 
             this.menuItemSettings.Name = "menuItemSettings";
-            this.menuItemSettings.Size = new System.Drawing.Size(180, 22);
+            this.menuItemSettings.Size = new System.Drawing.Size(134, 22);
             this.menuItemSettings.Text = "Настройки";
             this.menuItemSettings.Click += new System.EventHandler(this.menuItemSettings_Click);
             // 
             // menuItemMinimize
             // 
             this.menuItemMinimize.Name = "menuItemMinimize";
-            this.menuItemMinimize.Size = new System.Drawing.Size(180, 22);
+            this.menuItemMinimize.Size = new System.Drawing.Size(134, 22);
             this.menuItemMinimize.Text = "Свернуть";
             this.menuItemMinimize.Click += new System.EventHandler(this.menuItemMinimize_Click);
             // 
@@ -144,7 +144,7 @@ namespace TemperatureLog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(391, 239);
+            this.ClientSize = new System.Drawing.Size(324, 239);
             this.Controls.Add(this.humidity_percents);
             this.Controls.Add(this.humidityText);
             this.Controls.Add(this.degrees_label);

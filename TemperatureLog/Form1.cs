@@ -4,14 +4,20 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TemperatureLog.Entity;
+using System.Web;
+using Nancy.Json;
 
 namespace TemperatureLog
 {
     public partial class Frm_main : Form
     {
+        public Measure measure;
         public Frm_main()
         {
             InitializeComponent();
@@ -19,16 +25,24 @@ namespace TemperatureLog
             this.trayIcon.MouseDoubleClick += TrayIcon_MouseDoubleClick;
             this.Resize += Frm_main_Resize;
             System.Timers.Timer timer = new System.Timers.Timer();
-            timer.Interval = 300000;
+            timer.Interval = Properties.Settings.Default.notificationMinutes * 60000;
             timer.Elapsed += Timer_Elapsed;
             timer.Start();
+            measure = Utils.getLastMeasure();
+            degreesText.Text = measure.temperature.ToString();
+            humidityText.Text = measure.humidity.ToString();
+            trayIcon.Text = String.Format("Температура : {0}°C, влажность: {1}%", measure.temperature, measure.humidity);
         }
 
         private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
+            measure = Utils.getLastMeasure();
+            degreesText.Text = measure.temperature.ToString();
+            humidityText.Text = measure.humidity.ToString();
+            trayIcon.Text = String.Format("Температура : {0}°C, влажность: {1}%", measure.temperature, measure.humidity);
             if (Properties.Settings.Default.showNotifications)
-            {
-                trayIcon.ShowBalloonTip(2000, "Новое имерение", "Температура, влажность", ToolTipIcon.Info);
+            {                
+                trayIcon.ShowBalloonTip(2000, "Новое имерение", String.Format("Температура : {0}°C, влажность: {1}%", measure.temperature, measure.humidity), ToolTipIcon.Info);
             }            
         }
 

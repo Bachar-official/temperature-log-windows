@@ -16,7 +16,7 @@ namespace TemperatureLog
         {
             InitializeComponent();
             check_showNotifications.Checked = Properties.Settings.Default.showNotifications;
-            num_minutes.Enabled = check_showNotifications.Checked;
+            tbox_url.Text = Properties.Settings.Default.API_URL;
         }
 
         private void check_showNotifications_CheckedChanged(object sender, EventArgs e)

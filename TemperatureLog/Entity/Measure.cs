@@ -1,26 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Runtime.Serialization;
+using System.Security.Permissions;
+using System.Text.Json.Serialization;
 
 namespace TemperatureLog.Entity
 {
+    [Serializable]
     public class Measure
     {
-        private long id { get; set; }
-        private DateTime date { get; set; }
-        private double temperature { get; set; }
-        private double humidity { get; set; }
+        public long id { get; set; }
+        public string date { get; set; }
+        public double temperature { get; set; }
+        public double humidity { get; set; }
 
         public Measure() { }
 
-        public Measure(long id, DateTime date, double temperature, double humidity)
+        public double getTemperature()
         {
-            this.id = id;
-            this.date = date;
-            this.temperature = temperature;
-            this.humidity = humidity;
+            return this.temperature;
+        }
+
+        public double getHumidity()
+        {
+            return this.humidity;
         }
     }
 }
