@@ -18,28 +18,21 @@ namespace TemperatureLog
     public partial class Frm_main : Form
     {
         public Measure measure;
+        System.Timers.Timer timer;
         public Frm_main()
         {
             InitializeComponent();
             trayIcon.Visible = false;
             this.trayIcon.MouseDoubleClick += TrayIcon_MouseDoubleClick;
             this.Resize += Frm_main_Resize;
-            System.Timers.Timer timer = new System.Timers.Timer();
+            timer = new System.Timers.Timer();
             timer.Interval = Properties.Settings.Default.notificationMinutes * 60000;
             timer.Elapsed += Timer_Elapsed;
-            timer.Start();
-            measure = Utils.getLastMeasure();
-            degreesText.Text = measure.temperature.ToString();
-            humidityText.Text = measure.humidity.ToString();
-            trayIcon.Text = String.Format("Температура : {0}°C, влажность: {1}%", measure.temperature, measure.humidity);
         }
 
         private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
-            measure = Utils.getLastMeasure();
-            degreesText.Text = measure.temperature.ToString();
-            humidityText.Text = measure.humidity.ToString();
-            trayIcon.Text = String.Format("Температура : {0}°C, влажность: {1}%", measure.temperature, measure.humidity);
+            RefreshData();
             if (Properties.Settings.Default.showNotifications)
             {                
                 trayIcon.ShowBalloonTip(2000, "Новое имерение", String.Format("Температура : {0}°C, влажность: {1}%", measure.temperature, measure.humidity), ToolTipIcon.Info);
@@ -83,6 +76,25 @@ namespace TemperatureLog
         {
             Frm_statistics statistics = new Frm_statistics();
             statistics.ShowDialog();
+        }
+
+        private void btn_refresh_Click(object sender, EventArgs e)
+        {
+            RefreshData();
+        }
+
+        public void RefreshData()
+        {
+            measure = Utils.getLastMeasure();
+            degreesText.Text = measure.temperature.ToString();
+            humidityText.Text = measure.humidity.ToString();
+            trayIcon.Text = String.Format("Температура : {0}°C, влажность: {1}%", measure.temperature, measure.humidity);
+        }
+
+        private void btn_refresh_timer_Click(object sender, EventArgs e)
+        {
+            RefreshData();
+            timer.Start();
         }
     }
 }

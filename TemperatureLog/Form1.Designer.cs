@@ -43,6 +43,9 @@ namespace TemperatureLog
             this.menuItemSettings = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemMinimize = new System.Windows.Forms.ToolStripMenuItem();
             this.btn_statistics = new System.Windows.Forms.ToolStripMenuItem();
+            this.данныеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btn_refresh = new System.Windows.Forms.ToolStripMenuItem();
+            this.btn_refresh_timer = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenu.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -74,9 +77,9 @@ namespace TemperatureLog
             this.degreesText.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.degreesText.Location = new System.Drawing.Point(29, 41);
             this.degreesText.Name = "degreesText";
-            this.degreesText.Size = new System.Drawing.Size(158, 73);
+            this.degreesText.Size = new System.Drawing.Size(74, 73);
             this.degreesText.TabIndex = 1;
-            this.degreesText.Text = "25.7";
+            this.degreesText.Text = "--";
             // 
             // degrees_label
             // 
@@ -104,15 +107,16 @@ namespace TemperatureLog
             this.humidityText.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.humidityText.Location = new System.Drawing.Point(29, 128);
             this.humidityText.Name = "humidityText";
-            this.humidityText.Size = new System.Drawing.Size(158, 73);
+            this.humidityText.Size = new System.Drawing.Size(74, 73);
             this.humidityText.TabIndex = 3;
-            this.humidityText.Text = "00.0";
+            this.humidityText.Text = "--";
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.файлToolStripMenuItem,
-            this.btn_statistics});
+            this.btn_statistics,
+            this.данныеToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(324, 24);
@@ -148,6 +152,29 @@ namespace TemperatureLog
             this.btn_statistics.Size = new System.Drawing.Size(80, 20);
             this.btn_statistics.Text = "Статистика";
             this.btn_statistics.Click += new System.EventHandler(this.статистикаToolStripMenuItem_Click);
+            // 
+            // данныеToolStripMenuItem
+            // 
+            this.данныеToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btn_refresh,
+            this.btn_refresh_timer});
+            this.данныеToolStripMenuItem.Name = "данныеToolStripMenuItem";
+            this.данныеToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
+            this.данныеToolStripMenuItem.Text = "Данные";
+            // 
+            // btn_refresh
+            // 
+            this.btn_refresh.Name = "btn_refresh";
+            this.btn_refresh.Size = new System.Drawing.Size(216, 22);
+            this.btn_refresh.Text = "Обновить";
+            this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
+            // 
+            // btn_refresh_timer
+            // 
+            this.btn_refresh_timer.Name = "btn_refresh_timer";
+            this.btn_refresh_timer.Size = new System.Drawing.Size(216, 22);
+            this.btn_refresh_timer.Text = "Обновлять периодически";
+            this.btn_refresh_timer.Click += new System.EventHandler(this.btn_refresh_timer_Click);
             // 
             // Frm_main
             // 
@@ -185,6 +212,9 @@ namespace TemperatureLog
         private System.Windows.Forms.ContextMenuStrip contextMenu;
         private System.Windows.Forms.ToolStripMenuItem menuItemExit;
         private System.Windows.Forms.ToolStripMenuItem btn_statistics;
+        private System.Windows.Forms.ToolStripMenuItem данныеToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem btn_refresh;
+        private System.Windows.Forms.ToolStripMenuItem btn_refresh_timer;
     }
 }
 
