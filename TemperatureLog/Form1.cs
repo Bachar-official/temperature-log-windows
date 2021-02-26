@@ -78,5 +78,11 @@ namespace TemperatureLog
             Frm_settings settings = new Frm_settings();
             settings.ShowDialog();
         }
+
+        private void статистикаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_statistics statistics = new Frm_statistics();
+            statistics.ShowDialog();
+        }
     }
 }

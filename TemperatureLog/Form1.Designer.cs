@@ -42,6 +42,7 @@ namespace TemperatureLog
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemSettings = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemMinimize = new System.Windows.Forms.ToolStripMenuItem();
+            this.btn_statistics = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenu.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -110,7 +111,8 @@ namespace TemperatureLog
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.файлToolStripMenuItem});
+            this.файлToolStripMenuItem,
+            this.btn_statistics});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(324, 24);
@@ -139,6 +141,13 @@ namespace TemperatureLog
             this.menuItemMinimize.Size = new System.Drawing.Size(134, 22);
             this.menuItemMinimize.Text = "Свернуть";
             this.menuItemMinimize.Click += new System.EventHandler(this.menuItemMinimize_Click);
+            // 
+            // btn_statistics
+            // 
+            this.btn_statistics.Name = "btn_statistics";
+            this.btn_statistics.Size = new System.Drawing.Size(80, 20);
+            this.btn_statistics.Text = "Статистика";
+            this.btn_statistics.Click += new System.EventHandler(this.статистикаToolStripMenuItem_Click);
             // 
             // Frm_main
             // 
@@ -175,6 +184,7 @@ namespace TemperatureLog
         private System.Windows.Forms.ToolStripMenuItem menuItemMinimize;
         private System.Windows.Forms.ContextMenuStrip contextMenu;
         private System.Windows.Forms.ToolStripMenuItem menuItemExit;
+        private System.Windows.Forms.ToolStripMenuItem btn_statistics;
     }
 }
 
