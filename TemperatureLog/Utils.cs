@@ -42,5 +42,12 @@ namespace TemperatureLog
             }
             return measure;
         }
+
+        public static List<Measure> getAllMeasures()
+        {
+            string json = File.ReadAllText("C:\\Users\\Ivan Bacharnikov\\Documents\\weather.txt");
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            return js.Deserialize<List<Measure>>(json);
+        }
     }
 }
