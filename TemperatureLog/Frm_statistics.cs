@@ -19,7 +19,8 @@ namespace TemperatureLog
         public Frm_statistics()
         {
             InitializeComponent();
-            graph.GraphPane.Title.Text = "Температура, влажность / время";
+            graph.GraphPane.Title.Text = "Данные";
+            cmb_timecut.Text = "Все";
         }
 
         public void DrawGraph()
@@ -50,6 +51,7 @@ namespace TemperatureLog
 
         private void btn_file_Click(object sender, EventArgs e)
         {
+            graph.GraphPane.Title.Text = "Данные из файла";
             string path = "";
             OpenFileDialog dialog = new OpenFileDialog();
             dialog.Filter = "Текстовые файлы|*.txt";
@@ -67,7 +69,14 @@ namespace TemperatureLog
         {
             try
             {
-                measures = Utils.getAllMeasures();
+                measures = Utils.getAllMeasures(cmb_timecut.Text);
+                switch(cmb_timecut.Text)
+                {
+                    case "Все": graph.GraphPane.Title.Text = "Все данные"; break;
+                    case "Сутки": graph.GraphPane.Title.Text = "Данные за сутки"; break;
+                    case "Час": graph.GraphPane.Title.Text = "Данные за час"; break;
+                    default: break;
+                }
             }
             catch (Exception ex)
             {

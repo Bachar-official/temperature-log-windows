@@ -33,6 +33,7 @@ namespace TemperatureLog
             this.graph = new ZedGraph.ZedGraphControl();
             this.btn_file = new System.Windows.Forms.Button();
             this.btn_get = new System.Windows.Forms.Button();
+            this.cmb_timecut = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // graph
@@ -70,11 +71,24 @@ namespace TemperatureLog
             this.btn_get.UseVisualStyleBackColor = true;
             this.btn_get.Click += new System.EventHandler(this.btn_get_Click);
             // 
+            // cmb_timecut
+            // 
+            this.cmb_timecut.FormattingEnabled = true;
+            this.cmb_timecut.Items.AddRange(new object[] {
+            "Все",
+            "Сутки",
+            "Час"});
+            this.cmb_timecut.Location = new System.Drawing.Point(348, 401);
+            this.cmb_timecut.Name = "cmb_timecut";
+            this.cmb_timecut.Size = new System.Drawing.Size(110, 21);
+            this.cmb_timecut.TabIndex = 3;
+            // 
             // Frm_statistics
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(712, 435);
+            this.Controls.Add(this.cmb_timecut);
             this.Controls.Add(this.btn_get);
             this.Controls.Add(this.btn_file);
             this.Controls.Add(this.graph);
@@ -90,5 +104,6 @@ namespace TemperatureLog
         private ZedGraph.ZedGraphControl graph;
         private System.Windows.Forms.Button btn_file;
         private System.Windows.Forms.Button btn_get;
+        private System.Windows.Forms.ComboBox cmb_timecut;
     }
 }

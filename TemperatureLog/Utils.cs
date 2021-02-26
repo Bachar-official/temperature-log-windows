@@ -43,13 +43,21 @@ namespace TemperatureLog
             return measure;
         }
 
-        public static List<Measure> getAllMeasures()
+        public static List<Measure> getAllMeasures(string timecut)
         {
             string json = "";
             List<Measure> result = new List<Measure>();
+            string endpoint = "";
+            switch (timecut)
+            {
+                case "Все": endpoint = "/measures"; break;
+                case "Сутки": endpoint = "/measures/day"; break;
+                case "Час": endpoint = "/measures/hour"; break;
+                default: break;
+            }
             try
             {
-                json = Utils.getInfo(Properties.Settings.Default.API_URL + "/measures");
+                json = Utils.getInfo(Properties.Settings.Default.API_URL + endpoint);
             }
             catch (Exception e)
             {
