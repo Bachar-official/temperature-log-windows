@@ -54,6 +54,24 @@ namespace TemperatureLog
             catch (Exception e)
             {
                 MessageBox.Show("Ошибка при обращении по адресу " + Properties.Settings.Default.API_URL + e.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return result;
+            }
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            result = js.Deserialize<List<Measure>>(json);
+            return result;
+        }
+
+        public static List<Measure> getMeasuresFromFile(string path)
+        {
+            string json = "";
+            List<Measure> result = new List<Measure>();
+            try
+            {
+                json = File.ReadAllText(path);
+            }
+            catch(Exception exc)
+            {
+                MessageBox.Show("Ошибка при чтении файла \n" + Properties.Settings.Default.API_URL + exc.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             JavaScriptSerializer js = new JavaScriptSerializer();
             result = js.Deserialize<List<Measure>>(json);

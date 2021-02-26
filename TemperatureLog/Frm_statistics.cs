@@ -19,9 +19,7 @@ namespace TemperatureLog
         public Frm_statistics()
         {
             InitializeComponent();
-            measures = Utils.getAllMeasures();
-            times = Utils.graphTimes(measures);
-            DrawGraph();
+            graph.GraphPane.Title.Text = "Температура, влажность / время";
         }
 
         public void DrawGraph()
@@ -33,6 +31,8 @@ namespace TemperatureLog
             var pane = graph.GraphPane;
             pane.CurveList.Clear();
             pane.XAxis.Type = ZedGraph.AxisType.Date;
+            pane.XAxis.Title.Text = "Время";
+            pane.YAxis.Title.Text = "Влажность, температура";
 
             tempPoints = new PointPairList();
             humiPoints = new PointPairList();
@@ -46,6 +46,36 @@ namespace TemperatureLog
             }
             graph.AxisChange();
             graph.Invalidate();
+        }
+
+        private void btn_file_Click(object sender, EventArgs e)
+        {
+            string path = "";
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "Текстовые файлы|*.txt";
+            dialog.RestoreDirectory = true;
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                path = dialog.FileName;
+                measures = Utils.getMeasuresFromFile(path);
+                times = Utils.graphTimes(measures);
+                DrawGraph();
+            }
+        }
+
+        private void btn_get_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                measures = Utils.getAllMeasures();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            times = Utils.graphTimes(measures);
+            DrawGraph();
         }
     }
 }
